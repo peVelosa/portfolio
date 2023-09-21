@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*typewriter*/
+
+#cursor {
+  position: relative;
+  width: 2px;
+  line-height: inherit;
+  right: -3px;
+  animation: blink 750ms linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/********/
