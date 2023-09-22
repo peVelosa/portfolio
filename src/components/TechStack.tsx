@@ -34,6 +34,7 @@ const TechStack = () => {
           <TechIcon
             Icon={tec.Icon}
             fill={tec.fill}
+            label={tec.label}
             key={index}
             paragraphControls={paragraphControls}
             index={index}

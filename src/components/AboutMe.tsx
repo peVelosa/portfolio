@@ -19,11 +19,11 @@ const variants: Variants = {
   },
 };
 const paragraphVariants: Variants = {
-  hidden: (i: number) => ({
+  hidden: () => ({
     x: '-100vw',
     transition: {
       type: 'spring',
-      delay: i * 0.5,
+      // delay: i * 0.5,
       stiffness: 200,
       damping: 10,
     },
@@ -33,7 +33,7 @@ const paragraphVariants: Variants = {
     transition: {
       type: 'spring',
       delay: i * 0.5,
-      duration: 1,
+      duration: 1.25,
       stiffness: 200,
       damping: 40,
     },
@@ -74,7 +74,6 @@ const AboutMe = () => {
             initial="hidden"
             variants={paragraphVariants}
             animate={paragraphControls}
-            custom={1}
           >
             I am a 21 year old Brazilian
             <span className="font-bold"> front-end developer</span>,

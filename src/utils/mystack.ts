@@ -22,29 +22,34 @@ export const myStack = [
   {
     Icon: BiLogoCss3,
     fill: '#264de4',
+    label: 'CSS',
   },
   {
     Icon: TbBrandNextjs,
-    fill: 'white',
+    label: 'NEXT.JS',
   },
   {
     Icon: BiLogoReact,
     fill: '#61dbfb',
+    label: 'React',
   },
   {
     Icon: BiLogoTailwindCss,
     fill: '#38bdf8',
+    label: 'Tailwind',
   },
   {
     Icon: SiPrisma,
-    fill: 'black',
+    label: 'Prisma',
   },
   {
     Icon: BiLogoTypescript,
     fill: '#3178c6',
+    label: 'TypeScript',
   },
   {
     Icon: BsGit,
     fill: '#f84e28',
+    label: 'Git',
   },
 ];

@@ -34,24 +34,35 @@ const paragraphVariants: Variants = {
 type TechIcon = {
   Icon: IconType;
   paragraphControls: AnimationControls;
-  fill: string;
+  fill?: string;
+  label: string;
   index: number;
 };
 
-const TechIcon = ({ Icon, fill, paragraphControls, index }: TechIcon) => {
+const TechIcon = ({
+  Icon,
+  fill = 'red',
+  paragraphControls,
+  label,
+  index,
+}: TechIcon) => {
   return (
-    <div className="overflow-hidden">
+    <div className="pt-8 overflow-hidden">
       <motion.div
-        className="text-center"
+        className="text-center group relative"
         initial="hidden"
+        style={{ color: fill }}
         variants={paragraphVariants}
         animate={paragraphControls}
         custom={index}
       >
         <Icon
           size={80}
-          fill={fill}
+          className={`text-black group-hover:text-inherit`}
         />
+        <span className="text-black absolute -top-9 inset-x-0 hidden group-hover:block py-1 px-1 bg-slate-200 font-semibold">
+          {label}
+        </span>
       </motion.div>
     </div>
   );
