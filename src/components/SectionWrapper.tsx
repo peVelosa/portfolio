@@ -9,13 +9,8 @@ type SectionWrapperProps = {
 const SectionWrapper: FC<SectionWrapperProps> = ({ children, className }) => {
   return (
     <>
-      <section
-        className={twMerge(
-          'w-screen h-screen grid place-items-center p-4',
-          className,
-        )}
-      >
-        <div className="max-w-6xl w-full">{children}</div>
+      <section className={twMerge('w-screen min-h-screen p-4', className)}>
+        <div className="max-w-6xl w-full mx-auto">{children}</div>
       </section>
     </>
   );

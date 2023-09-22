@@ -29,7 +29,7 @@ const Introduction = () => {
 
   return (
     <>
-      <SectionWrapper className="font-name">
+      <SectionWrapper className="font-name grid place-items-center">
         <div className="overflow-hidden p-2 mb-6">
           <motion.h1
             className="text-center font-sans md:text-7xl text-4xl"

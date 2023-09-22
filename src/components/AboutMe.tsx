@@ -41,8 +41,8 @@ const paragraphVariants: Variants = {
 };
 
 const AboutMe = () => {
-  const sectionRef = useRef<ElementRef<'div'>>(null);
-  const isInView = useInView(sectionRef, { once: true });
+  const ref = useRef<ElementRef<'div'>>(null);
+  const isInView = useInView(ref, { once: true });
 
   const mainControls = useAnimation();
   const paragraphControls = useAnimation();
@@ -55,9 +55,9 @@ const AboutMe = () => {
   }, [isInView, mainControls, paragraphControls]);
 
   return (
-    <SectionWrapper>
-      <div ref={sectionRef}>
-        <div className="md:text-6xl uppercase text-slate-300 mb-8 relative w-fit overflow-hidden text-4xl">
+    <SectionWrapper className="min-h-[60vh] mt-8">
+      <div ref={ref}>
+        <div className="md:text-6xl uppercase text-slate-300 mb-12 relative w-fit overflow-hidden text-4xl">
           <Reveal>
             <motion.h2
               variants={variants}
@@ -85,31 +85,6 @@ const AboutMe = () => {
             have a constant thirst for learning and am eager to expand my
             knowledge, with plans to acquire expertise in Angular, Node.js, and
             Flutter to further enrich my skill set.
-          </motion.p>
-          <motion.p
-            className="mb-4"
-            initial="hidden"
-            variants={paragraphVariants}
-            animate={paragraphControls}
-            custom={2}
-          >
-            In addition to my technical skills, I am a strong advocate for
-            teamwork. I believe that collaboration is essential to achieving
-            outstanding results, and I am always ready to contribute and learn
-            from my colleagues. My dedication to excellence is reflected in my
-            aversion to subpar work, as I believe that quality is paramount in
-            any project.
-          </motion.p>
-          <motion.p
-            className="mb-4"
-            initial="hidden"
-            variants={paragraphVariants}
-            animate={paragraphControls}
-            custom={3}
-          >
-            I am excited about future front-end development opportunities and I
-            am continually seeking ways to enhance my skills and knowledge to
-            create impressive solutions.
           </motion.p>
         </div>
       </div>

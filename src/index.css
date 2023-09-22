@@ -22,3 +22,13 @@
 }
 
 /********/
+
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  align-items: center;
+  justify-items: center;
+  column-gap: 1rem;
+  row-gap: 2rem;
+  grid-auto-flow: dense;
+}
