@@ -19,8 +19,8 @@ const TechStack = () => {
   }, [isInView, paragraphControls]);
 
   return (
-    <SectionWrapper className="min-h-[60svh]">
-      <div className="relative mb-12 w-fit overflow-hidden text-4xl uppercase text-slate-300 md:text-6xl">
+    <SectionWrapper className="min-h-[40svh]">
+      <div className="relative w-fit overflow-hidden text-4xl uppercase text-slate-300 md:text-6xl">
         <Reveal>
           <motion.h2>My Stack</motion.h2>
         </Reveal>
