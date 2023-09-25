@@ -29,10 +29,10 @@ const Introduction = () => {
 
   return (
     <>
-      <SectionWrapper className="font-name grid place-items-center">
-        <div className="overflow-hidden p-2 mb-6">
+      <SectionWrapper className="grid place-items-center font-name">
+        <div className="mb-6 overflow-hidden p-2">
           <motion.h1
-            className="text-center font-sans md:text-7xl text-4xl"
+            className="text-center font-sans text-4xl md:text-7xl"
             initial="hidden"
             animate="visible"
             key="name"
@@ -44,7 +44,7 @@ const Introduction = () => {
         </div>
         <div className="overflow-hidden p-2">
           <motion.h2
-            className="text-center md:text-4xl text-2xl"
+            className="text-center text-2xl md:text-4xl"
             initial="hidden"
             animate="visible"
             variants={itemVariants}

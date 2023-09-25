@@ -27,6 +27,7 @@ export const myStack = [
   {
     Icon: TbBrandNextjs,
     label: 'NEXT.JS',
+    fill: '#000',
   },
   {
     Icon: BiLogoReact,
@@ -41,6 +42,7 @@ export const myStack = [
   {
     Icon: SiPrisma,
     label: 'Prisma',
+    fill: '#16a394',
   },
   {
     Icon: BiLogoTypescript,

@@ -47,9 +47,9 @@ const TechIcon = ({
   index,
 }: TechIcon) => {
   return (
-    <div className="pt-8 overflow-hidden">
+    <div className="overflow-hidden pt-8">
       <motion.div
-        className="text-center group relative"
+        className="group relative text-center"
         initial="hidden"
         style={{ color: fill }}
         variants={paragraphVariants}
@@ -60,7 +60,7 @@ const TechIcon = ({
           size={80}
           className={`text-black group-hover:text-inherit`}
         />
-        <span className="text-black absolute -top-9 inset-x-0 hidden group-hover:block py-1 px-1 bg-slate-200 font-semibold">
+        <span className="absolute inset-x-0 -top-9 hidden bg-slate-200 px-1 py-1 font-semibold text-black group-hover:block">
           {label}
         </span>
       </motion.div>

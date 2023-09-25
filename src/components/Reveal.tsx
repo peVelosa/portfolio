@@ -49,7 +49,7 @@ const Reveal: FC<RevealProps> = ({
     >
       {children}
       <motion.div
-        className="absolute -top-1 -bottom-1 bg-red-400"
+        className="absolute -bottom-1 -top-1 bg-red-400"
         variants={barVariant}
         initial="hidden"
         animate={barControl}

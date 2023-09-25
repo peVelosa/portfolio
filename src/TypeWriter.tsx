@@ -86,7 +86,7 @@ const TypeWriter = ({
   }, [currentText, words]);
 
   useEffect(() => {
-    let timer: NodeJS.Timer;
+    let timer: ReturnType<typeof setTimeout>;
     if (deletingStatus.loopCount >= loop) return;
     if (deletingStatus.hasStarted) return;
     if (deletingStatus.isDeleting) {
