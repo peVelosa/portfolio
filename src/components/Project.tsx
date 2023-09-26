@@ -34,16 +34,16 @@ const Project: FC<ProjectProps> = ({
       <div className=" w-full shrink-0 rounded-md bg-slate-50 shadow-md">
         <motion.article
           ref={projectRef}
-          className="mx-auto h-full max-w-5xl"
+          className="mx-auto h-full max-w-7xl"
         >
-          <motion.div className="h-full p-12">
+          <motion.div className="flex h-full flex-col p-12">
             <h1 className="mb-8 text-lg font-bold lg:text-4xl">{title}</h1>
-            <div className="grid h-full lg:grid-cols-[3fr_1fr]">
-              <img
+            <div className="grid h-full gap-4 lg:grid-cols-[3fr_2fr]">
+              {/* <img
                 src={image}
-                className="block max-h-full max-w-full rounded-md lg:order-2"
-              />
-              <div className="flex flex-col">
+                className="block h-full items-stretch rounded-md object-cover lg:order-2"
+              /> */}
+              <div className="flex flex-col gap-8">
                 <p className="text-xl">{description}</p>
                 <div className="font-semibold capitalize">
                   <a
