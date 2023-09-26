@@ -37,11 +37,11 @@ const Project: FC<ProjectProps> = ({
           className="mx-auto h-full max-w-7xl"
         >
           <motion.div className="flex h-full flex-col p-12">
-            <h1 className="mb-8 text-lg font-bold lg:text-4xl">{title}</h1>
+            <h1 className="mb-8 text-3xl font-bold lg:text-4xl">{title}</h1>
             <div className="grid h-full gap-4 lg:grid-cols-[3fr_2fr]">
               <img
                 src={image}
-                className="block h-full items-stretch rounded-md object-cover lg:order-2"
+                className="mx-auto block aspect-video max-w-md items-stretch rounded-md object-cover lg:order-2 lg:aspect-auto"
               />
               <div className="flex flex-col gap-8">
                 <p className="text-xl">{description}</p>
