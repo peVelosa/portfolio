@@ -6,6 +6,18 @@ export default {
       fontFamily: {
         name: ['Sen', 'sans-serif'],
       },
+      height: {
+        screen: '100svh',
+      },
+      minHeight: {
+        screen: '100svh',
+      },
+      width: {
+        screen: '100svw',
+      },
+      minWidth: {
+        screen: '100svw',
+      },
     },
   },
   plugins: [],

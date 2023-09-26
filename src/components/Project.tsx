@@ -36,7 +36,7 @@ const Project: FC<ProjectProps> = ({
           ref={projectRef}
           className="h-full"
         >
-          <motion.div className="flex h-full flex-col gap-8 rounded-md bg-slate-50 p-12 pb-28 shadow-md">
+          <motion.div className="flex h-full flex-col gap-8 rounded-md bg-slate-50 p-12 shadow-md">
             <h1 className="text-lg font-bold md:text-4xl">{title}</h1>
             <img
               src={image}
