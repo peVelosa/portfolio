@@ -9,13 +9,7 @@ type ProjectProps = {
   image: string;
 };
 
-const Project: FC<ProjectProps> = ({
-  title,
-  description,
-  demo,
-  source,
-  image,
-}) => {
+const Project: FC<ProjectProps> = ({ title, description, demo, source }) => {
   const projectRef = useRef<ElementRef<'article'>>(null);
 
   const mainControls = useAnimation();
@@ -39,10 +33,10 @@ const Project: FC<ProjectProps> = ({
           <motion.div className="flex h-full flex-col p-12">
             <h1 className="mb-8 text-3xl font-bold lg:text-4xl">{title}</h1>
             <div className="grid h-full gap-4 lg:grid-cols-[3fr_2fr]">
-              <img
+              {/* <img
                 src={image}
                 className="mx-auto block aspect-video max-w-md items-stretch rounded-md object-cover lg:order-2 lg:aspect-auto"
-              />
+              /> */}
               <div className="flex flex-col gap-8">
                 <p className="text-xl">{description}</p>
                 <div className="font-semibold capitalize">

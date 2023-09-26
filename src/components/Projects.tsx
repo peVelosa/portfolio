@@ -24,7 +24,7 @@ const Projects = () => {
       className={`h-[300svh]`}
       ref={targetRef}
     >
-      <div className="sticky top-0 grid h-[90vh] grid-rows-[auto_1fr]">
+      <div className="sticky top-0 grid h-[90vh] grid-rows-[auto_1fr] overflow-hidden">
         <div
           className="relative mb-16 w-fit text-4xl uppercase leading-none text-slate-300 md:text-6xl"
           ref={titleRef}
