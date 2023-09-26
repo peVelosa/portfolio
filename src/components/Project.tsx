@@ -14,7 +14,7 @@ const Project: FC<ProjectProps> = ({
   description,
   demo,
   source,
-  // image,
+  image,
 }) => {
   const projectRef = useRef<ElementRef<'article'>>(null);
 
@@ -39,10 +39,10 @@ const Project: FC<ProjectProps> = ({
           <motion.div className="flex h-full flex-col p-12">
             <h1 className="mb-8 text-lg font-bold lg:text-4xl">{title}</h1>
             <div className="grid h-full gap-4 lg:grid-cols-[3fr_2fr]">
-              {/* <img
+              <img
                 src={image}
                 className="block h-full items-stretch rounded-md object-cover lg:order-2"
-              /> */}
+              />
               <div className="flex flex-col gap-8">
                 <p className="text-xl">{description}</p>
                 <div className="font-semibold capitalize">
