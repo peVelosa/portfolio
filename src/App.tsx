@@ -9,6 +9,7 @@ const App = () => {
       <AboutMe />
       <TechStack />
       <Projects />
+      <TechStack />
     </main>
   );
 };

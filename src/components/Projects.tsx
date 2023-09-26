@@ -16,7 +16,7 @@ const Projects = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    ['0%', `-${(myProjects.length - 1) * 100}%`],
+    ['10%', `-${(myProjects.length - 1) * 100}%`],
   );
 
   return (
@@ -24,9 +24,9 @@ const Projects = () => {
       className={`h-[300svh]`}
       ref={targetRef}
     >
-      <div className="sticky top-0 flex h-screen flex-col">
+      <div className="sticky top-0 grid h-[90vh] grid-rows-[auto_1fr]">
         <div
-          className="relative mb-16 w-fit shrink-0 overflow-hidden text-4xl uppercase leading-none text-slate-300 md:text-6xl"
+          className="relative mb-16 w-fit text-4xl uppercase leading-none text-slate-300 md:text-6xl"
           ref={titleRef}
         >
           <Reveal>
@@ -40,6 +40,7 @@ const Projects = () => {
           >
             {myProjects.map((p) => (
               <Project
+                key={p.title}
                 title={p.title}
                 description={p.description}
                 demo={p.links.demo}
