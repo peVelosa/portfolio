@@ -42,7 +42,7 @@ const Project: FC<ProjectProps> = ({
               <div className="relative mx-auto block aspect-video h-full w-full max-w-xs items-stretch overflow-hidden rounded-md lg:order-2 lg:max-w-md">
                 <img
                   src={image}
-                  className="absolute inset-0 h-full object-cover object-left"
+                  className="absolute inset-0 h-full w-full object-cover object-left"
                 />
               </div>
               <div className="flex flex-col gap-8">
