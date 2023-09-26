@@ -14,7 +14,7 @@ const Project: FC<ProjectProps> = ({
   description,
   demo,
   source,
-  image,
+  // image,
 }) => {
   const projectRef = useRef<ElementRef<'article'>>(null);
 
