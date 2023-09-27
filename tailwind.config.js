@@ -4,7 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        name: ['Sen', 'sans-serif'],
+        name: ['Mr Dafoe', 'cursive'],
+        body: ['Poppins', 'sans-serif'],
+        about: ['Dela Gothic One', 'cursive'],
       },
       height: {
         screen: '100svh',

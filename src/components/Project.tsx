@@ -62,7 +62,7 @@ const Project: FC<ProjectProps> = ({
               </figure>
               <div className="flex flex-col gap-8">
                 <p className="text-lg md:text-xl">{description}</p>
-                <div className="font-semibold capitalize">
+                <div className="flex font-semibold capitalize">
                   <Link
                     href={source}
                     className="bg-slate-700 text-white hover:bg-slate-900"

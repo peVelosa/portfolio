@@ -57,10 +57,10 @@ const TechIcon = ({
         custom={index}
       >
         <Icon
-          size={80}
+          size={90}
           className={`text-black group-hover:text-inherit`}
         />
-        <span className="absolute inset-x-0 -top-9 hidden bg-slate-200 px-1 py-1 font-semibold text-black group-hover:block">
+        <span className="absolute inset-x-0 -top-9 hidden bg-slate-200 px-1 py-1 text-sm font-semibold text-black group-hover:block md:text-base">
           {label}
         </span>
       </motion.div>

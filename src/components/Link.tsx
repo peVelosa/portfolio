@@ -3,12 +3,17 @@ import type { FC } from 'react';
 
 type LinkProps = {
   href: string;
-  children:React.ReactNode
+  children: React.ReactNode;
   target?: React.HTMLAttributeAnchorTarget;
   className?: React.ComponentProps<'section'>['className'];
 };
 
-const Link: FC<LinkProps> = ({ href, target = '_blank', className,children }) => {
+const Link: FC<LinkProps> = ({
+  href,
+  target = '_blank',
+  className,
+  children,
+}) => {
   return (
     <a
       href={href}

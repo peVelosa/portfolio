@@ -21,25 +21,25 @@ const headerVariants: Variants = {
       duration: 1,
       stiffness: 100,
       damping: 18,
-      delay: 0.25,
+      delay: 0.15,
     },
   },
 };
 const paragraphVariants: Variants = {
-  hidden: (i: number) => ({
+  hidden: () => ({
     x: '-100vw',
     transition: {
       type: 'spring',
-      delay: i * 0.5,
+      delay: 0.25,
       stiffness: 200,
       damping: 10,
     },
   }),
-  visible: (i: number) => ({
+  visible: () => ({
     x: 0,
     transition: {
       type: 'spring',
-      delay: i * 0.5,
+      delay: 0.25,
       duration: 1,
       stiffness: 200,
       damping: 40,
@@ -49,8 +49,8 @@ const paragraphVariants: Variants = {
 
 const AboutMe = () => {
   const ref = useRef<ElementRef<'div'>>(null);
-  const { scrollYProgress } = useScroll();
-  const x = useTransform(scrollYProgress, [0, 0.8], [-400, 350]);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const x = useTransform(scrollYProgress, [0.4, 1], [0, -400]);
   const isInView = useInView(ref, { once: true });
 
   const mainControls = useAnimation();
@@ -70,7 +70,7 @@ const AboutMe = () => {
         className="relative isolate"
       >
         <div className="w-fit uppercase text-slate-200">
-          <Reveal className="mb-8 overflow-hidden text-4xl md:hidden">
+          <Reveal className="mb-8 overflow-hidden text-4xl sm:hidden">
             <motion.h2
               variants={headerVariants}
               initial="hidden"
@@ -80,7 +80,7 @@ const AboutMe = () => {
             </motion.h2>
           </Reveal>
           <motion.h2
-            className="pointer-events-none absolute -top-24 -z-10 hidden leading-none md:block md:text-[12rem]"
+            className="font-about pointer-events-none absolute -top-20 -z-10 hidden sm:block sm:text-9xl"
             style={{ x }}
           >
             About me
@@ -104,7 +104,6 @@ const AboutMe = () => {
             initial="hidden"
             variants={paragraphVariants}
             animate={paragraphControls}
-            custom={1}
           >
             I am a 21 year old Brazilian
             <span className="font-bold"> front-end developer</span>,

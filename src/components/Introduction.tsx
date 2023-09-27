@@ -29,10 +29,10 @@ const Introduction = () => {
 
   return (
     <>
-      <SectionWrapper className="relative grid place-items-center font-name">
-        <div className="mb-6 overflow-hidden p-2">
+      <SectionWrapper className="relative grid place-items-center">
+        <div className="mb-6 overflow-hidden p-2 font-name">
           <motion.h1
-            className="text-center font-sans text-4xl md:text-7xl"
+            className="text-center text-4xl md:text-7xl"
             initial="hidden"
             animate="visible"
             key="name"
