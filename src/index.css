@@ -33,22 +33,43 @@
   grid-auto-flow: dense;
 }
 
-.project {
-  display: grid;
-  grid-template-areas:
-    'title title image'
-    'description description image'
-    'button none image';
+.icon-scroll {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.p-title {
-  grid-area: title;
+
+.icon-scroll {
+  width: 2.5rem;
+  height: 4.375rem;
+  margin-left: -1.25rem;
+  margin-top: -2.188rem;
+  box-shadow: inset 0 0 0 1px #000;
+  border-radius: 1.563rem;
 }
-.p-description {
-  grid-area: description;
+
+.icon-scroll:before {
+  display: block;
+  content: '';
+  margin-top: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #000;
+  border-radius: 0.25rem;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: scroll;
 }
-.p-image {
-  grid-area: image;
-}
-.p-button {
-  grid-area: button;
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
 }

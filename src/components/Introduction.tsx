@@ -29,7 +29,7 @@ const Introduction = () => {
 
   return (
     <>
-      <SectionWrapper className="grid place-items-center font-name">
+      <SectionWrapper className="relative grid place-items-center font-name">
         <div className="mb-6 overflow-hidden p-2">
           <motion.h1
             className="text-center font-sans text-4xl md:text-7xl"
@@ -61,6 +61,16 @@ const Introduction = () => {
             />
           </motion.h2>
         </div>
+        <motion.div
+          className="icon-scroll"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            opacity: {
+              delay: 1.65,
+            },
+          }}
+        />
       </SectionWrapper>
     </>
   );

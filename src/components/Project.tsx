@@ -1,12 +1,13 @@
 import { useAnimation, useInView, motion } from 'framer-motion';
 import { useRef, useEffect, type FC, ElementRef } from 'react';
+import Link from './Link';
 
 type ProjectProps = {
   title: string;
   description: string;
   demo: string;
   source: string;
-  image: string;
+  image: { src: string; position: string };
 };
 
 const Project: FC<ProjectProps> = ({
@@ -14,7 +15,7 @@ const Project: FC<ProjectProps> = ({
   description,
   demo,
   source,
-  image,
+  image: { src, position },
 }) => {
   const projectRef = useRef<ElementRef<'article'>>(null);
 
@@ -31,37 +32,42 @@ const Project: FC<ProjectProps> = ({
 
   return (
     <>
-      <div className=" w-full shrink-0 rounded-md bg-slate-100 shadow-md">
+      <div className="mx-auto w-full  shrink-0 rounded-md bg-slate-100 shadow-md">
         <motion.article
           ref={projectRef}
-          className="mx-auto h-full max-w-7xl"
+          className="h-full w-full max-w-[90rem]"
         >
-          <motion.div className="flex h-full flex-col p-12">
-            <h1 className="mb-8 text-3xl font-bold lg:text-4xl">{title}</h1>
-            <div className="grid h-full gap-4 lg:grid-cols-[3fr_2fr]">
-              <div className="relative mx-auto block aspect-video h-full w-full max-w-xs items-stretch overflow-hidden rounded-md lg:order-2 lg:max-w-md">
-                <img
-                  src={image}
-                  className="absolute inset-0 h-full w-full object-cover object-left"
-                />
-              </div>
+          <motion.div className="flex h-full flex-col items-start p-12">
+            <h1 className="mb-8 text-2xl font-bold lg:text-4xl">{title}</h1>
+            <div className="grid h-full grid-rows-[4fr_3fr] gap-4 lg:grid-cols-[1fr_1fr]">
+              <a
+                href={demo}
+                target="_blank"
+                className="mx-auto block max-w-xl overflow-hidden hover:scale-105 lg:order-2 lg:row-span-2"
+              >
+                <figure className="block aspect-video h-full lg:aspect-auto">
+                  <img
+                    src={src}
+                    style={{ objectPosition: position }}
+                    className="block max-h-full w-full rounded-md object-cover lg:order-2"
+                  />
+                </figure>
+              </a>
               <div className="flex flex-col gap-8">
-                <p className="text-xl">{description}</p>
+                <p className="text-lg md:text-xl">{description}</p>
                 <div className="font-semibold capitalize">
-                  <a
-                    className="mr-8 inline-block rounded-md bg-slate-200 px-6 py-2 shadow-lg hover:bg-slate-300"
-                    target="_blank"
-                    href={demo}
-                  >
-                    demo
-                  </a>
-                  <a
-                    className="mr-8 inline-block rounded-md bg-slate-700 px-6 py-2 text-white shadow-lg hover:bg-slate-900"
-                    target="_blank"
+                  <Link
                     href={source}
+                    className="bg-slate-700 text-white hover:bg-slate-900"
                   >
                     source
-                  </a>
+                  </Link>
+                  <Link
+                    href={demo}
+                    className="bg-slate-200 hover:bg-slate-300"
+                  >
+                    demo
+                  </Link>
                 </div>
               </div>
             </div>

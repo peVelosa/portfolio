@@ -2,9 +2,12 @@ export const projects = [
   {
     title: 'Twitter Clone',
     description:
-      "It's a twitter clone whit optimistic updades, authentication and more.",
+      'This site is a Twitter clone. It is possible to create publications, interact, comment and create your own profile',
 
-    image: '/twitter-clone.png',
+    image: {
+      src: '/twitter-clone.png',
+      position: 'top',
+    },
     links: {
       demo: 'https://twitter-clone-pevelosa.vercel.app/',
       source: 'https://github.com/peVelosa/twitter-clone',
@@ -14,9 +17,11 @@ export const projects = [
   {
     title: 'Rock, Paper, Scissors (Lizard, Spock)',
     description:
-      'This site is a single-player site that you can play rock, paper, scissors against cpu',
-
-    image: '/rock-papper-scissors.png',
+      'On this site you can play Rock, Paper, Scissors (Lizard, Spock) against the cpu to test your luck.',
+    image: {
+      src: '/rock-papper-scissors.png',
+      position: 'center',
+    },
     links: {
       demo: 'https://pevelosa.github.io/rockpaperscissors/',
       source: 'https://github.com/peVelosa/rockpaperscissors',
@@ -26,9 +31,11 @@ export const projects = [
   {
     title: 'To do App (Drag & Drop)',
     description:
-      'This is a site where you can create an account and have control over your tasks. You can...',
-
-    image: '/to-do-app.png',
+      'Here  you can control your activities separated by category, create tasks for each activity and register.',
+    image: {
+      src: '/to-do-app.png',
+      position: 'center',
+    },
     links: {
       demo: 'https://to-do-app-pevelosa.vercel.app/',
       source: 'https://github.com/peVelosa/to-do-app',
