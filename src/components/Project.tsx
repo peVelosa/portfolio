@@ -32,18 +32,18 @@ const Project: FC<ProjectProps> = ({
 
   return (
     <>
-      <div className="mx-auto w-full  shrink-0 rounded-md bg-slate-100 shadow-md">
+      <div className="mx-auto w-full  shrink-0 rounded-md bg-slate-100 shadow-md ">
         <motion.article
           ref={projectRef}
           className="h-full w-full max-w-[90rem]"
         >
-          <motion.div className="flex h-full flex-col items-start p-12">
+          <motion.div className="flex h-full flex-col items-start p-4 lg:p-12">
             <h1 className="mb-8 text-2xl font-bold lg:text-4xl">{title}</h1>
-            <div className="grid h-full grid-rows-[4fr_3fr] gap-4 lg:grid-cols-[1fr_1fr]">
+            <div className="grid h-full grid-rows-[4fr_3fr] gap-4 overflow-hidden lg:grid-cols-[1fr_1fr]">
               <a
                 href={demo}
                 target="_blank"
-                className="mx-auto block max-w-xl overflow-hidden hover:scale-105 lg:order-2 lg:row-span-2"
+                className="mx-auto hidden max-w-xl overflow-hidden hover:scale-105 lg:order-2 lg:row-span-2 lg:block"
               >
                 <figure className="block aspect-video h-full lg:aspect-auto">
                   <img
@@ -53,6 +53,13 @@ const Project: FC<ProjectProps> = ({
                   />
                 </figure>
               </a>
+              <figure className="mx-auto block aspect-video h-full max-w-xl overflow-hidden lg:hidden">
+                <img
+                  src={src}
+                  style={{ objectPosition: position }}
+                  className="block max-h-full w-full rounded-md object-cover lg:order-2"
+                />
+              </figure>
               <div className="flex flex-col gap-8">
                 <p className="text-lg md:text-xl">{description}</p>
                 <div className="font-semibold capitalize">
