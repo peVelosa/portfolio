@@ -1,28 +1,7 @@
 import SectionWrapper from './SectionWrapper';
 import TypeWriter from '@/components/TypeWriter';
-import { motion, Variants } from 'framer-motion';
-
-const itemVariants: Variants = {
-  hidden: (i: number) => ({
-    y: 150,
-    transition: {
-      delay: i * 0.5,
-      type: 'spring',
-      stiffness: 200,
-      damping: 40,
-    },
-  }),
-  visible: (i: number) => ({
-    y: 0,
-    transition: {
-      delay: i * 0.5,
-      duration: 1,
-      type: 'spring',
-      stiffness: 200,
-      damping: 40,
-    },
-  }),
-};
+import { motion } from 'framer-motion';
+import { itemVariants } from '@/helpers/variants';
 
 const Introduction = () => {
   const aboutMe = ['geek', 'gamer', 'code lover'];

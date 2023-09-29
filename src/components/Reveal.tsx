@@ -1,7 +1,8 @@
 import { twMerge } from 'tailwind-merge';
 
-import { type Variants, motion, useAnimation, useInView } from 'framer-motion';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import { type ElementRef, FC, useEffect, useRef } from 'react';
+import { barVariant } from '@/helpers/variants';
 
 type RevealProps = {
   children: React.ReactNode;
@@ -20,19 +21,7 @@ const Reveal: FC<RevealProps> = ({
   const isInView = useInView(ref, { once });
 
   const barControl = useAnimation();
-
-  const barVariant: Variants = {
-    hidden: {
-      left: 0,
-      right: 0,
-    },
-    visible: {
-      left: '100%',
-      transition: {
-        duration,
-      },
-    },
-  };
+  const variant = barVariant(duration);
 
   useEffect(() => {
     if (isInView) {
@@ -44,14 +33,14 @@ const Reveal: FC<RevealProps> = ({
 
   return (
     <div
-      className={twMerge('relative w-fit', className)}
+      className={twMerge('relative mb-4 w-fit md:mb-12', className)}
       ref={ref}
     >
       {children}
       <motion.div
         className="absolute -bottom-1 -top-1 bg-red-400"
-        variants={barVariant}
         initial="hidden"
+        variants={variant}
         animate={barControl}
       />
     </div>

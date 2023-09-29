@@ -1,35 +1,6 @@
-import { AnimationControls, Variants, motion } from 'framer-motion';
+import { AnimationControls, motion } from 'framer-motion';
 import { type IconType } from 'react-icons';
-
-const paragraphVariants: Variants = {
-  hidden: (i: number) => ({
-    y: -100,
-    scale: 0.5,
-    transition: {
-      type: 'spring',
-      delay: i * 0.2,
-      stiffness: 200,
-      damping: 10,
-    },
-  }),
-  visible: (i: number) => ({
-    y: 0,
-    scale: 1,
-    transition: {
-      y: {
-        type: 'spring',
-        delay: i * 0.2,
-        duration: 1,
-        stiffness: 200,
-        damping: 40,
-      },
-      scale: {
-        delay: i * 0.25,
-        duration: 0.75,
-      },
-    },
-  }),
-};
+import { iconVariants } from '@/helpers/variants';
 
 type TechIcon = {
   Icon: IconType;
@@ -54,7 +25,7 @@ const TechIcon = ({
         className="group relative text-center"
         initial={paragraphControls ? 'hidden' : 'visible'}
         style={{ color: fill }}
-        variants={paragraphVariants}
+        variants={iconVariants}
         animate={paragraphControls}
         custom={index}
       >

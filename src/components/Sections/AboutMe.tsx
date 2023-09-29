@@ -2,50 +2,13 @@ import {
   motion,
   useTransform,
   useScroll,
-  Variants,
   useAnimation,
   useInView,
 } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
 import { type ElementRef, useRef, useEffect } from 'react';
 import Reveal from '@/components/Reveal';
-
-const headerVariants: Variants = {
-  hidden: {
-    y: 75,
-  },
-  visible: {
-    y: 0,
-    transition: {
-      type: 'spring',
-      duration: 1,
-      stiffness: 100,
-      damping: 18,
-      delay: 0.15,
-    },
-  },
-};
-const paragraphVariants: Variants = {
-  hidden: () => ({
-    x: '-100vw',
-    transition: {
-      type: 'spring',
-      delay: 0.2,
-      stiffness: 200,
-      damping: 10,
-    },
-  }),
-  visible: () => ({
-    x: 0,
-    transition: {
-      type: 'spring',
-      delay: 0.2,
-      duration: 1,
-      stiffness: 200,
-      damping: 40,
-    },
-  }),
-};
+import { headerVariants, paragraphVariants } from '@/helpers/variants';
 
 const yearsOld = Math.floor(
   (new Date().getTime() - new Date(2002, 0, 4).getTime()) /
@@ -80,8 +43,8 @@ const AboutMe = () => {
         <div className="w-fit uppercase text-slate-200">
           <Reveal className="mb-8 overflow-hidden text-4xl sm:hidden">
             <motion.h2
-              variants={headerVariants}
               initial="hidden"
+              variants={headerVariants}
               animate={mainControls}
             >
               About me

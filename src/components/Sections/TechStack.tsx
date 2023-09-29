@@ -4,7 +4,7 @@ import SectionWrapper from '@/components/Sections/SectionWrapper';
 
 import TechIcon from '@/components/Icon';
 import { stack } from '@/utils/stack';
-import { useRef, ElementRef, useEffect } from 'react';
+import { useRef, type ElementRef, useEffect } from 'react';
 
 const TechStack = () => {
   const ref = useRef<ElementRef<'div'>>(null);
@@ -23,7 +23,7 @@ const TechStack = () => {
       className="min-h-[40svh]"
       id="stack"
     >
-      <div className="relative mb-8 w-fit overflow-hidden text-4xl uppercase text-slate-300 md:text-6xl">
+      <div className="relative w-fit overflow-hidden text-4xl uppercase text-slate-300 md:text-6xl">
         <Reveal>
           <motion.h2>My Stack</motion.h2>
         </Reveal>
