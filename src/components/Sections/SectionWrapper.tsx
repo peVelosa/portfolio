@@ -3,21 +3,22 @@ import { type FC } from 'react';
 
 type SectionWrapperProps = {
   children: React.ReactNode;
+  id: string;
   className?: React.ComponentProps<'section'>['className'];
-  childClassName?: React.ComponentProps<'div'>['className'];
 };
 
 const SectionWrapper: FC<SectionWrapperProps> = ({
   children,
   className,
-  childClassName,
+  id,
 }) => {
   return (
     <>
-      <section className={twMerge('min-h-screen w-screen p-4', className)}>
-        <div className={twMerge('mx-auto w-full max-w-6xl', childClassName)}>
-          {children}
-        </div>
+      <section
+        className={twMerge('min-h-screen w-screen p-4', className)}
+        id={id}
+      >
+        <div className={'mx-auto w-full max-w-6xl'}>{children}</div>
       </section>
     </>
   );

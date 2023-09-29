@@ -1,5 +1,5 @@
 import SectionWrapper from './SectionWrapper';
-import TypeWriter from '../TypeWriter';
+import TypeWriter from '@/components/TypeWriter';
 import { motion, Variants } from 'framer-motion';
 
 const itemVariants: Variants = {
@@ -29,7 +29,10 @@ const Introduction = () => {
 
   return (
     <>
-      <SectionWrapper className="relative grid place-items-center">
+      <SectionWrapper
+        className="relative grid place-items-center"
+        id="introduction"
+      >
         <div className="mb-6 overflow-hidden p-2 font-name">
           <motion.h1
             className="text-center text-4xl md:text-7xl"

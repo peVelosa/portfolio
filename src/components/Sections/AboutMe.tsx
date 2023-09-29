@@ -8,7 +8,7 @@ import {
 } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
 import { type ElementRef, useRef, useEffect } from 'react';
-import Reveal from './Reveal';
+import Reveal from '@/components/Reveal';
 
 const headerVariants: Variants = {
   hidden: {
@@ -30,7 +30,7 @@ const paragraphVariants: Variants = {
     x: '-100vw',
     transition: {
       type: 'spring',
-      delay: 0.25,
+      delay: 0.2,
       stiffness: 200,
       damping: 10,
     },
@@ -39,13 +39,18 @@ const paragraphVariants: Variants = {
     x: 0,
     transition: {
       type: 'spring',
-      delay: 0.25,
+      delay: 0.2,
       duration: 1,
       stiffness: 200,
       damping: 40,
     },
   }),
 };
+
+const yearsOld = Math.floor(
+  (new Date().getTime() - new Date(2002, 0, 4).getTime()) /
+    (1000 * 60 * 60 * 24 * 365),
+);
 
 const AboutMe = () => {
   const ref = useRef<ElementRef<'div'>>(null);
@@ -64,7 +69,10 @@ const AboutMe = () => {
   }, [isInView, mainControls, paragraphControls]);
 
   return (
-    <SectionWrapper className=" mt-8 grid place-content-center">
+    <SectionWrapper
+      className=" mt-8 grid place-content-center"
+      id="about"
+    >
       <div
         ref={ref}
         className="relative isolate"
@@ -80,7 +88,7 @@ const AboutMe = () => {
             </motion.h2>
           </Reveal>
           <motion.h2
-            className="font-about pointer-events-none absolute -top-20 -z-10 hidden sm:block sm:text-9xl"
+            className="pointer-events-none absolute -top-20 -z-10 hidden font-about sm:block sm:text-9xl"
             style={{ x }}
           >
             About me
@@ -88,24 +96,13 @@ const AboutMe = () => {
         </div>
 
         <div className="z-20 px-4 text-xl md:ml-20 md:text-2xl">
-          <p className="hidden leading-9 md:block">
-            I am a 21 year old Brazilian
-            <span className="font-bold"> front-end developer</span>,
-            specializing in <span className="font-bold">ReactJS</span> and{' '}
-            <span className="font-bold">Next.js</span>. My passion for coding
-            and my commitment to quality have driven me to create
-            high-performance web interfaces and exceptional user experiences. I
-            have a constant thirst for learning and am eager to expand my
-            knowledge, with plans to acquire expertise in Angular, Node.js, and
-            Flutter to further enrich my skill set.
-          </p>
           <motion.p
-            className="mb-4 block md:hidden"
+            className="mb-4 block "
             initial="hidden"
             variants={paragraphVariants}
             animate={paragraphControls}
           >
-            I am a 21 year old Brazilian
+            I am a {yearsOld} year old Brazilian
             <span className="font-bold"> front-end developer</span>,
             specializing in <span className="font-bold">ReactJS</span> and{' '}
             <span className="font-bold">Next.js</span>. My passion for coding

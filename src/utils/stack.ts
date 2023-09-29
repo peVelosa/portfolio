@@ -1,6 +1,4 @@
-// import { FaHtml5 } from 'react-icons/fa';
 import {
-  // BiLogoJavascript,
   BiLogoCss3,
   BiLogoReact,
   BiLogoTailwindCss,
@@ -10,15 +8,7 @@ import { TbBrandNextjs } from 'react-icons/tb';
 import { SiPrisma } from 'react-icons/si';
 import { BsGit } from 'react-icons/bs';
 
-export const myStack = [
-  // {
-  //   Icon: FaHtml5,
-  //   fill: '#e34c26',
-  // },
-  // {
-  //   Icon: BiLogoJavascript,
-  //   fill: '#F0DB4F',
-  // },
+export const stack = [
   {
     Icon: BiLogoCss3,
     fill: '#264de4',

@@ -1,4 +1,4 @@
-export const projects = [
+export const projectsToShow = [
   {
     title: 'Twitter Clone',
     description:
@@ -12,7 +12,6 @@ export const projects = [
       demo: 'https://twitter-clone-pevelosa.vercel.app/',
       source: 'https://github.com/peVelosa/twitter-clone',
     },
-    tecnlogies: [],
   },
   {
     title: 'Rock, Paper, Scissors (Lizard, Spock)',
@@ -26,7 +25,6 @@ export const projects = [
       demo: 'https://pevelosa.github.io/rockpaperscissors/',
       source: 'https://github.com/peVelosa/rockpaperscissors',
     },
-    tecnlogies: [],
   },
   {
     title: 'To do App (Drag & Drop)',
@@ -40,6 +38,5 @@ export const projects = [
       demo: 'https://to-do-app-pevelosa.vercel.app/',
       source: 'https://github.com/peVelosa/to-do-app',
     },
-    tecnlogies: [],
   },
 ];

@@ -1,5 +1,4 @@
-import { useAnimation, useInView, motion } from 'framer-motion';
-import { useRef, useEffect, type FC, ElementRef } from 'react';
+import { type FC } from 'react';
 import Link from './Link';
 
 type ProjectProps = {
@@ -17,27 +16,11 @@ const Project: FC<ProjectProps> = ({
   source,
   image: { src, position },
 }) => {
-  const projectRef = useRef<ElementRef<'article'>>(null);
-
-  const mainControls = useAnimation();
-  const isInView = useInView(projectRef);
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start('visible');
-    } else {
-      mainControls.start('hidden');
-    }
-  }, [isInView, mainControls]);
-
   return (
     <>
-      <div className="mx-auto w-full  shrink-0 rounded-md bg-slate-100 shadow-md ">
-        <motion.article
-          ref={projectRef}
-          className="h-full w-full max-w-[90rem]"
-        >
-          <motion.div className="flex h-full flex-col items-start p-4 lg:p-12">
+      <article className="mx-auto w-full  shrink-0 rounded-md bg-slate-100 shadow-md ">
+        <div className="h-full w-full max-w-[90rem]">
+          <div className="flex h-full flex-col items-start p-4 lg:p-12">
             <h1 className="mb-8 text-2xl font-bold lg:text-4xl">{title}</h1>
             <div className="grid h-full grid-rows-[4fr_3fr] gap-4 overflow-hidden lg:grid-cols-[1fr_1fr]">
               <a
@@ -78,9 +61,9 @@ const Project: FC<ProjectProps> = ({
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.article>
-      </div>
+          </div>
+        </div>
+      </article>
     </>
   );
 };

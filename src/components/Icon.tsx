@@ -1,5 +1,5 @@
 import { AnimationControls, Variants, motion } from 'framer-motion';
-import { IconType } from 'react-icons';
+import { type IconType } from 'react-icons';
 
 const paragraphVariants: Variants = {
   hidden: (i: number) => ({
@@ -33,10 +33,11 @@ const paragraphVariants: Variants = {
 
 type TechIcon = {
   Icon: IconType;
-  paragraphControls: AnimationControls;
+  paragraphControls?: AnimationControls;
+  label?: string;
   fill?: string;
-  label: string;
-  index: number;
+  index?: number;
+  size?: number;
 };
 
 const TechIcon = ({
@@ -45,24 +46,27 @@ const TechIcon = ({
   paragraphControls,
   label,
   index,
+  size = 90,
 }: TechIcon) => {
   return (
     <div className="overflow-hidden pt-8">
       <motion.div
         className="group relative text-center"
-        initial="hidden"
+        initial={paragraphControls ? 'hidden' : 'visible'}
         style={{ color: fill }}
         variants={paragraphVariants}
         animate={paragraphControls}
         custom={index}
       >
         <Icon
-          size={90}
+          size={size}
           className={`text-black group-hover:text-inherit`}
         />
-        <span className="absolute inset-x-0 -top-9 hidden bg-slate-200 px-1 py-1 text-sm font-semibold text-black group-hover:block md:text-base">
-          {label}
-        </span>
+        {label && (
+          <span className="absolute inset-x-0 -top-9 hidden bg-slate-300 px-1 py-1 text-sm font-semibold text-black before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:border-x-8 before:border-t-8 before:border-slate-300 before:border-x-transparent before:content-[''] group-hover:block md:text-base">
+            {label}
+          </span>
+        )}
       </motion.div>
     </div>
   );

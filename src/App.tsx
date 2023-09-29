@@ -1,16 +1,20 @@
-import AboutMe from './components/AboutMe';
-import Introduction from './components/Introduction';
-import Projects from './components/Projects';
-import TechStack from './components/TechStack';
+import AboutMe from './components/Sections/AboutMe';
+import Introduction from './components/Sections/Introduction';
+import TechStack from './components/Sections/TechStack';
+import Projects from './components/Sections/Projects';
+import DesktopMenu from './components/Menu/DesktopMenu';
+
 const App = () => {
   return (
-    <main className="font-body pb-20">
-      <Introduction />
-      <AboutMe />
-      <TechStack />
-      <Projects />
-      <TechStack />
-    </main>
+    <>
+      <DesktopMenu />
+      <main className="pb-20">
+        <Introduction />
+        <AboutMe />
+        <TechStack />
+        <Projects />
+      </main>
+    </>
   );
 };
 

@@ -1,9 +1,8 @@
-// import SectionWrapper from './SectionWrapper';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ElementRef, useRef } from 'react';
-import Reveal from './Reveal';
-import Project from './Project';
-import { projects as myProjects } from '../utils/projects';
+import Reveal from '../Reveal';
+import Project from '../Project';
+import { projectsToShow } from '@/utils/projectsToShow';
 import SectionWrapper from './SectionWrapper';
 
 const Projects = () => {
@@ -17,11 +16,11 @@ const Projects = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    ['10%', `-${(myProjects.length - 1) * 100 + 5}%`],
+    ['10%', `-${(projectsToShow.length - 1) * 100 + 8}%`],
   );
   return (
     <>
-      <SectionWrapper>
+      <SectionWrapper id="projects">
         <div
           className={`h-[400svh]`}
           ref={targetRef}
@@ -40,7 +39,7 @@ const Projects = () => {
                 className="flex h-full gap-4"
                 style={{ x }}
               >
-                {myProjects.map((p) => (
+                {projectsToShow.map((p) => (
                   <Project
                     key={p.title}
                     title={p.title}
