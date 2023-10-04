@@ -31,7 +31,7 @@ const Contact = () => {
 
   return (
     <SectionWrapper
-      className="mt-32 min-h-[60vh]"
+      className="min-h-[60vh] md:mt-32"
       id="contact"
     >
       <div
