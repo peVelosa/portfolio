@@ -32,7 +32,7 @@ const DesktopMenu = () => {
   }, [navbarControl, isOpen]);
 
   return (
-    <header className="fixed left-1/2 top-4 isolate z-20 w-full max-w-xs -translate-x-1/2 px-8 text-xs font-semibold text-white md:px-2 md:text-sm">
+    <header className="fixed left-1/2 top-4 isolate z-20 w-fit -translate-x-1/2 px-8 text-xs font-semibold text-white md:px-2 md:text-sm">
       <motion.div
         className="items relative flex h-12 items-center justify-end gap-2 rounded-lg bg-slate-600/60 p-2 backdrop-blur-sm"
         initial="hidden"
@@ -43,7 +43,7 @@ const DesktopMenu = () => {
           index === 0 ? (
             <div
               key={section.id}
-              className="mr-auto rounded bg-slate-800 hover:bg-slate-900"
+              className="mr-auto hidden rounded bg-slate-800 hover:bg-slate-900 sm:block"
             >
               <button
                 onClick={() => goTo(section)}

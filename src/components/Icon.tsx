@@ -8,7 +8,6 @@ type TechIcon = {
   label?: string;
   fill?: string;
   index?: number;
-  size?: number;
 };
 
 const TechIcon = ({
@@ -17,10 +16,9 @@ const TechIcon = ({
   paragraphControls,
   label,
   index,
-  size = 90,
 }: TechIcon) => {
   return (
-    <div className="overflow-hidden pt-8">
+    <div className={`overflow-hidden ${label ? 'pt-8' : ''}`}>
       <motion.div
         className="group relative text-center"
         initial={paragraphControls ? 'hidden' : 'visible'}
@@ -30,8 +28,7 @@ const TechIcon = ({
         custom={index}
       >
         <Icon
-          size={size}
-          className={`text-black group-hover:text-inherit`}
+          className={`h-[60px] w-[60px] text-black group-hover:text-inherit md:h-[90px] md:w-[90px]`}
         />
         {label && (
           <span className="absolute inset-x-0 -top-9 hidden bg-slate-300 px-1 py-1 text-sm font-semibold text-black before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:border-x-8 before:border-t-8 before:border-slate-300 before:border-x-transparent before:content-[''] group-hover:block md:text-base">

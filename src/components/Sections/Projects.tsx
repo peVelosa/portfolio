@@ -37,7 +37,7 @@ const Projects = () => {
               </div>
               <div className="w-full overflow-hidden">
                 <motion.div
-                  className="flex h-full gap-4"
+                  className="flex h-full gap-4 will-change-transform"
                   style={{ x }}
                 >
                   {projectsToShow.map((p) => (
