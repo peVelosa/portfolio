@@ -2,7 +2,7 @@ export const projectsToShow = [
   {
     title: 'Twitter Clone',
     description: [
-      'This site is a Twitter clone. It is possible to create publications, interact, comment and create your own profile. ',
+      'This site is a Twitter clone. It is possible to create publications, interact, comment and create your own profile. ***This project is under development***.',
       'Technologies: **Next.JS**, **React Query**, **Supabase**',
     ],
     image: {
@@ -17,7 +17,7 @@ export const projectsToShow = [
   {
     title: 'Shopping Cart',
     description: [
-      'Simple shopping cart using Nextjs, React Query, Hooks and Typescript. ***This project is under development***',
+      'Simple shopping cart using Nextjs, React Query, Hooks and Typescript.',
       'Technologies: **Next.JS**, **React Query**, **Typescript**',
     ],
     image: {
