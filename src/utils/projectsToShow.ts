@@ -17,7 +17,7 @@ export const projectsToShow = [
   {
     title: 'Shopping Cart',
     description: [
-      'Simple shopping cart using Nextjs, React Query, Hooks and Typescript.',
+      'Simple shopping cart using Nextjs, React Query, Hooks and Typescript. ***This project is under development***',
       'Technologies: **Next.JS**, **React Query**, **Typescript**',
     ],
     image: {
