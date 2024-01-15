@@ -10,7 +10,7 @@ export const projectsToShow = [
       position: 'top',
     },
     links: {
-      demo: 'https://twitter-clone-pevelosa.vercel.app/',
+      demo: 'https://pevelosa-twitter-clone.vercel.app/',
       source: 'https://github.com/peVelosa/twitter-clone',
     },
   },
