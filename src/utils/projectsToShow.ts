@@ -18,15 +18,15 @@ export const projectsToShow = [
     title: 'Shopping Cart',
     description: [
       'Simple shopping cart using Nextjs, React Query, Hooks and Typescript.',
-      'Technologies: **Next.JS**, **React Query**, **Typescript**',
+      'Technologies: **Next.JS**, **React Query**, **Typescript**, **Shadcn**',
     ],
     image: {
       src: '/shopping-cart.png',
       position: 'center',
     },
     links: {
-      demo: 'https://shoppingcart-two-tawny.vercel.app/product',
-      source: 'https://github.com/peVelosa/shoppingcart',
+      demo: 'https://pevelosa-shopping-cart.vercel.app/',
+      source: 'https://github.com/peVelosa/shopping-cart',
     },
   },
   {
