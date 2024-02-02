@@ -30,18 +30,18 @@ export const projectsToShow = [
     },
   },
   {
-    title: 'To do App (Drag & Drop)',
+    title: 'Landing Page',
     description: [
-      'Here  you can control your activities separated by category, create tasks for each activity and register.',
-      'Technologies: **Next.JS**, **React Query**, **PlanetScale**',
+      'This website is just a landing page.',
+      'Technologies: **React.Js**, **Tailwind**',
     ],
     image: {
-      src: '/to-do-app.png',
+      src: '/room.png',
       position: 'center',
     },
     links: {
-      demo: 'https://to-do-app-pevelosa.vercel.app/',
-      source: 'https://github.com/peVelosa/to-do-app',
+      demo: 'https://pevelosa-room.vercel.app/',
+      source: 'https://github.com/peVelosa/room-homepage',
     },
   },
 ];
