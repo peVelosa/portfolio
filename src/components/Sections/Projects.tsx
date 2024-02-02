@@ -1,23 +1,13 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { type ElementRef, useRef } from 'react';
+import { motion } from 'framer-motion';
 import Reveal from '@/components/Reveal';
 import Project from '@/components/Project';
 import { projectsToShow } from '@/utils/projectsToShow';
 import SectionWrapper from './SectionWrapper';
+import useScrollAnimation from 'src/hooks/useScrollAnimation';
 
 const Projects = () => {
-  const titleRef = useRef<ElementRef<'div'>>(null);
-  const targetRef = useRef<ElementRef<'div'>>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['start start', 'end end'],
-  });
+  const { targetRef, x } = useScrollAnimation(projectsToShow.length);
 
-  const x = useTransform(
-    scrollYProgress,
-    [0, 0.975],
-    ['10%', `-${(projectsToShow.length - 1) * 100 + 10}%`],
-  );
   return (
     <>
       <SectionWrapper id="projects">
@@ -27,10 +17,7 @@ const Projects = () => {
         >
           <div className="sticky top-4 h-screen overflow-hidden">
             <div className="grid h-full grid-rows-[auto_1fr] pb-12">
-              <div
-                className="relative w-fit text-4xl uppercase leading-none text-slate-300 md:text-6xl"
-                ref={titleRef}
-              >
+              <div className="relative w-fit text-4xl uppercase leading-none text-slate-300 md:text-6xl">
                 <Reveal>
                   <motion.h2>Projects</motion.h2>
                 </Reveal>

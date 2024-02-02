@@ -30,22 +30,9 @@ const TypeWriter = ({
   const [deletingStatus, setDeletingStatus] = useState({
     isDeleting: false,
     loopCount: 0,
-    hasStarted: true,
+    hasStarted: false,
   });
   const index = useRef(0);
-
-  useEffect(() => {
-    const initialDelayTimer = setTimeout(() => {
-      setDeletingStatus((old) => ({
-        ...old,
-        hasStarted: false,
-      }));
-    }, initialDelay);
-
-    return () => {
-      clearTimeout(initialDelayTimer);
-    };
-  }, [initialDelay]);
 
   const sleep = useCallback(() => {
     return new Promise((resolve) => setTimeout(resolve, delaySpeed));
@@ -54,6 +41,7 @@ const TypeWriter = ({
   const typeWord = useCallback(() => {
     setCurrentText((old) => words[index.current].slice(0, old.length + 1));
   }, [words]);
+
   const untypeWord = useCallback(async () => {
     if (currentText === words[index.current]) {
       await sleep();
@@ -62,13 +50,26 @@ const TypeWriter = ({
   }, [currentText, words, sleep]);
 
   useEffect(() => {
+    const initialDelayTimer = setTimeout(() => {
+      setDeletingStatus((old) => ({
+        ...old,
+        hasStarted: true,
+      }));
+    }, initialDelay);
+
+    return () => {
+      clearTimeout(initialDelayTimer);
+    };
+  }, []);
+
+  useEffect(() => {
     const indexLimit = words.length - 1 === index.current;
     if (currentText.length === 0) {
       setDeletingStatus((old) => ({
         ...old,
         isDeleting: false,
       }));
-      if (deletingStatus.hasStarted) return;
+      if (!deletingStatus.hasStarted) return;
       indexLimit ? (index.current = 0) : (index.current += 1);
     }
     if (currentText === words[index.current]) {
@@ -88,7 +89,7 @@ const TypeWriter = ({
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
     if (deletingStatus.loopCount >= loop) return;
-    if (deletingStatus.hasStarted) return;
+    if (!deletingStatus.hasStarted) return;
     if (deletingStatus.isDeleting) {
       timer = setTimeout(() => {
         untypeWord();

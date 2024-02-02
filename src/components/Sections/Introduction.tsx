@@ -1,15 +1,36 @@
 import SectionWrapper from './SectionWrapper';
 import TypeWriter from '@/components/TypeWriter';
-import { motion } from 'framer-motion';
-import { itemVariants } from '@/helpers/variants';
+import { type Variants, motion } from 'framer-motion';
+
+const fadeInVariant: Variants = {
+  hidden: (i: number) => ({
+    y: 150,
+    transition: {
+      delay: i * 0.5,
+      type: 'spring',
+      stiffness: 200,
+      damping: 40,
+    },
+  }),
+  visible: (i: number) => ({
+    y: 0,
+    transition: {
+      delay: i * 0.5,
+      duration: 1,
+      type: 'spring',
+      stiffness: 200,
+      damping: 40,
+    },
+  }),
+};
 
 const Introduction = () => {
-  const aboutMe = ['geek', 'gamer', 'code lover'];
+  const typeWritterPhrases = ['geek', 'gamer', 'code lover'];
 
   return (
     <>
       <SectionWrapper
-        className="relative grid place-items-center"
+        className="relative grid place-items-center overflow-hidden"
         id="introduction"
       >
         <div className="mb-6 overflow-hidden p-2 font-name">
@@ -18,7 +39,7 @@ const Introduction = () => {
             initial="hidden"
             animate="visible"
             key="name"
-            variants={itemVariants}
+            variants={fadeInVariant}
             custom={1}
           >
             Pedro Velosa
@@ -29,13 +50,13 @@ const Introduction = () => {
             className="text-center text-2xl md:text-4xl"
             initial="hidden"
             animate="visible"
-            variants={itemVariants}
-            key="about-me"
+            variants={fadeInVariant}
+            key="typewritter-phrases"
             custom={2}
           >
             Front-end developer &{' '}
             <TypeWriter
-              words={aboutMe}
+              words={typeWritterPhrases}
               typeSpeed={150}
               deleteSpeed={120}
               delaySpeed={1000}
@@ -45,13 +66,10 @@ const Introduction = () => {
         </div>
         <motion.div
           className="icon-scroll"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            opacity: {
-              delay: 1.65,
-            },
-          }}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariant}
+          custom={3}
         />
       </SectionWrapper>
     </>

@@ -1,33 +1,16 @@
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useAnimation,
-  useInView,
-} from 'framer-motion';
+import { motion } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
 import Reveal from '@/components/Reveal';
-import { headerVariants, paragraphVariants } from '@/helpers/variants';
 import { socialMedias } from '@/utils/socialMedias';
 import Icon from '@/components/Icon';
-import { type ElementRef, useRef, useEffect } from 'react';
 import Link from '../Link';
+import useFade from 'src/hooks/useFade';
+import useParallax from 'src/hooks/useParallax';
+import { headerVariants, paragraphVariants } from '@/helpers/variants';
 
 const Contact = () => {
-  const ref = useRef<ElementRef<'div'>>(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0.6, 1], [0, 600]);
-  const isInView = useInView(ref, { once: true });
-
-  const mainControls = useAnimation();
-  const paragraphControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start('visible');
-      paragraphControls.start('visible');
-    }
-  }, [isInView, mainControls, paragraphControls]);
+  const { ref, x } = useParallax();
+  const { fadeInX, ref: headerRef } = useFade();
 
   return (
     <SectionWrapper
@@ -38,12 +21,15 @@ const Contact = () => {
         ref={ref}
         className="relative isolate"
       >
-        <div className="w-fit uppercase text-slate-200">
+        <div
+          className="w-fit uppercase text-slate-200"
+          ref={headerRef}
+        >
           <Reveal className="mb-8 overflow-hidden text-4xl sm:hidden">
             <motion.h2
               initial="hidden"
               variants={headerVariants}
-              animate={mainControls}
+              animate={fadeInX}
             >
               Contact
             </motion.h2>
@@ -61,7 +47,7 @@ const Contact = () => {
             className="mb-4 block "
             initial="hidden"
             variants={paragraphVariants}
-            animate={paragraphControls}
+            animate={fadeInX}
           >
             Feel free to visit me on other platforms or to download my resume.
           </motion.p>

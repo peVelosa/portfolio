@@ -1,22 +1,13 @@
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Reveal from '@/components/Reveal';
 import SectionWrapper from '@/components/Sections/SectionWrapper';
 
 import TechIcon from '@/components/Icon';
 import { stack } from '@/utils/stack';
-import { useRef, type ElementRef, useEffect } from 'react';
+import useFade from 'src/hooks/useFade';
 
 const TechStack = () => {
-  const ref = useRef<ElementRef<'div'>>(null);
-  const isInView = useInView(ref, { once: true });
-
-  const paragraphControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      paragraphControls.start('visible');
-    }
-  }, [isInView, paragraphControls]);
+  const { ref, fadeInX } = useFade();
 
   return (
     <SectionWrapper
@@ -39,7 +30,7 @@ const TechStack = () => {
             fill={tec.fill}
             label={tec.label}
             key={index}
-            paragraphControls={paragraphControls}
+            paragraphControls={fadeInX}
             index={index}
           />
         ))}

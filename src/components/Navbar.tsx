@@ -1,35 +1,22 @@
-import { motion, useAnimation } from 'framer-motion';
-import { useCallback, useEffect, useState } from 'react';
+import { Variants, motion } from 'framer-motion';
 import goTo from 'src/helpers/goTo';
-import { navbarVariants } from 'src/helpers/variants';
+import useNavbar from 'src/hooks/useNavbar';
 
-const DesktopMenu = () => {
-  const [sections, setSections] = useState<HTMLElement[] | []>([]);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [lastScrollYPosition, setLastScrollYPosition] = useState<number>(0);
+const navbarVariants: Variants = {
+  hidden: {
+    y: -100,
+  },
+  visible: {
+    y: 0,
+    transition: {
+      type: 'spring',
+      duration: 1,
+    },
+  },
+};
 
-  const navbarControl = useAnimation();
-
-  const onScroll = useCallback(() => {
-    const currentScrollYPosition = window.scrollY;
-    currentScrollYPosition < lastScrollYPosition
-      ? setIsOpen(true)
-      : setIsOpen(false);
-
-    setLastScrollYPosition(() => currentScrollYPosition);
-  }, [lastScrollYPosition]);
-
-  useEffect(() => {
-    setSections(Array.from(document.getElementsByTagName('section')));
-
-    document.addEventListener('scroll', onScroll);
-
-    return () => document.removeEventListener('scroll', onScroll);
-  }, [onScroll]);
-
-  useEffect(() => {
-    isOpen ? navbarControl.start('visible') : navbarControl.start('hidden');
-  }, [navbarControl, isOpen]);
+const Navbar = () => {
+  const { navbarControl, sections } = useNavbar();
 
   return (
     <header className="fixed left-1/2 top-4 isolate z-20 w-fit -translate-x-1/2 px-8 text-xs font-semibold text-white md:px-2 md:text-sm">
@@ -71,4 +58,4 @@ const DesktopMenu = () => {
   );
 };
 
-export default DesktopMenu;
+export default Navbar;

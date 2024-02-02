@@ -1,14 +1,9 @@
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useAnimation,
-  useInView,
-} from 'framer-motion';
+import { motion } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
-import { type ElementRef, useRef, useEffect } from 'react';
 import Reveal from '@/components/Reveal';
 import { headerVariants, paragraphVariants } from '@/helpers/variants';
+import useParallax from 'src/hooks/useParallax';
+import useFade from 'src/hooks/useFade';
 
 const yearsOld = Math.floor(
   (new Date().getTime() - new Date(2002, 0, 4).getTime()) /
@@ -16,20 +11,8 @@ const yearsOld = Math.floor(
 );
 
 const AboutMe = () => {
-  const ref = useRef<ElementRef<'div'>>(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0.4, 1], [0, -400]);
-  const isInView = useInView(ref, { once: true });
-
-  const mainControls = useAnimation();
-  const paragraphControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start('visible');
-      paragraphControls.start('visible');
-    }
-  }, [isInView, mainControls, paragraphControls]);
+  const { ref, x } = useParallax();
+  const { fadeInX, ref: headerRef } = useFade();
 
   return (
     <SectionWrapper
@@ -41,15 +24,17 @@ const AboutMe = () => {
         className="relative isolate"
       >
         <div className="w-fit uppercase text-slate-200">
-          <Reveal className="mb-8 overflow-hidden text-4xl sm:hidden">
-            <motion.h2
-              initial="hidden"
-              variants={headerVariants}
-              animate={mainControls}
-            >
-              About me
-            </motion.h2>
-          </Reveal>
+          <div ref={headerRef}>
+            <Reveal className="mb-8 overflow-hidden text-4xl sm:hidden">
+              <motion.h2
+                initial="hidden"
+                variants={headerVariants}
+                animate={fadeInX}
+              >
+                About me
+              </motion.h2>
+            </Reveal>
+          </div>
           <motion.h2
             className="pointer-events-none absolute -top-20 -z-10 hidden font-about sm:block sm:text-9xl"
             style={{ x }}
@@ -63,7 +48,7 @@ const AboutMe = () => {
             className="mb-4 block "
             initial="hidden"
             variants={paragraphVariants}
-            animate={paragraphControls}
+            animate={fadeInX}
           >
             I am a {yearsOld} year old Brazilian
             <span className="font-bold"> front-end developer</span>,

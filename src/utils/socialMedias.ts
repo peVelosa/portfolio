@@ -15,6 +15,6 @@ export const socialMedias = [
   {
     Icon: VscFilePdf,
     fill: '#ed0008',
-    href: '/curriculum.pdf',
+    href: '/curriculo-en.pdf',
   },
 ];
