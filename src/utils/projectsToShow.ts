@@ -30,18 +30,18 @@ export const projectsToShow = [
     },
   },
   {
-    title: 'Landing Page',
+    title: 'Kanbify',
     description: [
-      'This website is just a landing page.',
-      'Technologies: **React.Js**, **Tailwind**',
+      'Kanbify is a website that you can use to increase your team productivity using boards e cards.',
+      'Technologies: **T3Stack (TailwindCSS, Typescript, tRPC, React Query, Next Auth)**',
     ],
     image: {
-      src: '/room.png',
+      src: '/kanbify.png',
       position: 'center',
     },
     links: {
-      demo: 'https://pevelosa-room.vercel.app/',
-      source: 'https://github.com/peVelosa/room-homepage',
+      demo: 'https://kanbify.vercel.app/',
+      source: 'https://github.com/peVelosa/kanbify',
     },
   },
 ];
