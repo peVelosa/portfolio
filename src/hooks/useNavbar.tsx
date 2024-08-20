@@ -18,7 +18,7 @@ const useNavbar = () => {
   }, [lastScrollYPosition]);
 
   useEffect(() => {
-    setSections(Array.from(document.getElementsByTagName('section')));
+    setSections(Array.from(document.querySelectorAll('main section')));
 
     document.addEventListener('scroll', onScroll);
 
